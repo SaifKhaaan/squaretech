@@ -1,0 +1,14 @@
+[
+  {
+    "id": "a1b2c3d4-e5f6-7890-1234-567890abcdef",
+    "name": "External User 1",
+    "email": "user1@example.com",
+    "phone": "+1234567890"
+  },
+  {
+    "id": "f9e8d7c6-b5a4-3210-fedc-ba9876543210",
+    "name": "External User 2",
+    "email": "user2@example.com",
+    "phone": "+0987654321"
+  }
+]
