@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import useUserStore from '../userStore';
-import "./crud.css";
+import './crud.css';
 
 const CRUD = () => {
   const {
@@ -99,7 +99,7 @@ const CRUD = () => {
 
   return (
     <div className="crud-container">
-      <h2>User CRUD (Zustand)</h2>
+      <h2>User CRUD for Square Teckworks</h2>
       <form onSubmit={handleSubmit}>
         <label>
           Action:
@@ -153,31 +153,38 @@ const CRUD = () => {
         <button type="submit">Submit</button>
       </form>
 
-      {error && <div style={{ color: 'red', marginTop: '10px' }}><strong>Error:</strong> {error}</div>}
+      {error && (
+        <div className="error">
+          <strong>Error:</strong> {error}
+        </div>
+      )}
+
       {response && (
-        <div style={{ marginTop: '20px' }}>
+        <div className="response">
           <h3>Response:</h3>
           {Array.isArray(response) ? (
-            <table border="1" cellPadding="8">
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Name</th>
-                  <th>Email</th>
-                  <th>Phone</th>
-                </tr>
-              </thead>
-              <tbody>
-                {response.map(user => (
-                  <tr key={user.id}>
-                    <td>{user.id}</td>
-                    <td>{user.name}</td>
-                    <td>{user.email}</td>
-                    <td>{user.phone}</td>
+            <div className="table-wrapper">
+              <table>
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {response.map(user => (
+                    <tr key={user.id}>
+                      <td>{user.id}</td>
+                      <td>{user.name}</td>
+                      <td>{user.email}</td>
+                      <td>{user.phone}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           ) : (
             <pre>{JSON.stringify(response, null, 2)}</pre>
           )}
@@ -186,26 +193,28 @@ const CRUD = () => {
 
       <div style={{ marginTop: '30px' }}>
         <h3>All Users</h3>
-        <table border="1" cellPadding="8">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Phone</th>
-            </tr>
-          </thead>
-          <tbody>
-            {users.map(user => (
-              <tr key={user.id}>
-                <td>{user.id}</td>
-                <td>{user.name}</td>
-                <td>{user.email}</td>
-                <td>{user.phone}</td>
+        <div className="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {users.map(user => (
+                <tr key={user.id}>
+                  <td>{user.id}</td>
+                  <td>{user.name}</td>
+                  <td>{user.email}</td>
+                  <td>{user.phone}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );
