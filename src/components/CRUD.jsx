@@ -6,7 +6,6 @@ const CRUD = () => {
   const {
     users,
     fetchUsers,
-    setUsers,
     createUser,
     updateUser,
     deleteUser,
